@@ -1,0 +1,98 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <welcome-file-list>
+        <welcome-file>/view/index.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>servlet</servlet-name>
+        <servlet-class>com.machine.controller.MainServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servlet</servlet-name>
+        <url-pattern>/index</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/registration</url-pattern>
+        <url-pattern>/logOut</url-pattern>
+        <url-pattern>/openCashBox</url-pattern>
+        <url-pattern>/closeCashBox</url-pattern>
+        <url-pattern>/openBill</url-pattern>
+        <url-pattern>/addProductByCode</url-pattern>
+        <url-pattern>/addProductByName</url-pattern>
+        <url-pattern>/addProductN</url-pattern>
+        <url-pattern>/addProductC</url-pattern>
+        <url-pattern>/closeBill</url-pattern>
+        <url-pattern>/backToUser</url-pattern>
+        <url-pattern>/cancelBill</url-pattern>
+        <url-pattern>/makeX</url-pattern>
+        <url-pattern>/makeZ</url-pattern>
+        <url-pattern>/products</url-pattern>
+        <url-pattern>/addNewProduct</url-pattern>
+        <url-pattern>/confirmAddingProduct</url-pattern>
+        <url-pattern>/updateProductInfo</url-pattern>
+        <url-pattern>/confirmUpdating</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>SessionTimeoutFilter</filter-name>
+        <filter-class>com.machine.filters.SessionTimeoutFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionTimeoutFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.machine.filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/logOut</url-pattern>
+        <url-pattern>/openCashBox</url-pattern>
+        <url-pattern>/closeCashBox</url-pattern>
+        <url-pattern>/openBill</url-pattern>
+        <url-pattern>/addProductByCode</url-pattern>
+        <url-pattern>/addProductByName</url-pattern>
+        <url-pattern>/addProductN</url-pattern>
+        <url-pattern>/addProductC</url-pattern>
+        <url-pattern>/closeBill</url-pattern>
+        <url-pattern>/backToUser</url-pattern>
+        <url-pattern>/cancelBill</url-pattern>
+        <url-pattern>/makeX</url-pattern>
+        <url-pattern>/makeZ</url-pattern>
+        <url-pattern>/products</url-pattern>
+        <url-pattern>/addNewProduct</url-pattern>
+        <url-pattern>/confirmAddingProduct</url-pattern>
+        <url-pattern>/updateProductInfo</url-pattern>
+        <url-pattern>/confirmUpdating</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>setCharFilter</filter-name>
+        <filter-class>com.machine.filters.SetCharFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>setCharFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/view/exception.jsp</location>
+    </error-page>
+
+
+
+</web-app>
